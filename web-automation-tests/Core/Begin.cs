@@ -16,7 +16,7 @@ namespace web_automation_tests.Core
             driver.Navigate().GoToUrl("https://www.correios.com.br");
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            driverQuit = false;
+            driverQuit = true;
         }
 
         [AfterScenario]
