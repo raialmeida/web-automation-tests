@@ -1,0 +1,19 @@
+﻿{
+  "specFlow": {
+    "bindingCulture": {
+      "language": "pt-BR"
+    }
+  },
+  "unitTestProvider": {
+    "name": "nunit"
+  },
+  "stepAssemblies": [
+    {
+      "assembly": "web-automation-tests"
+    }
+  ],
+  "parallelExecution": {
+    "enable": true,
+    "scope": "Scenario"
+  }
+}
