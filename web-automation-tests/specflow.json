@@ -5,7 +5,7 @@
     }
   },
   "unitTestProvider": {
-    "name": "nunit"
+    "name": "NUnit"
   },
   "stepAssemblies": [
     {

@@ -1,11 +1,11 @@
-﻿using TechTalk.SpecFlow;
+﻿using OpenQA.Selenium;
+using TechTalk.SpecFlow;
 using web_automation_tests.Pages;
 
 namespace web_automation_tests.Steps
 {
-
     [Binding]
-    public class ConsultCepStep : ConsultCepPage
+    public class ConsultCepStep(IWebDriver driver) : ConsultCepPage(driver)
     {
 
         [Given(@"que estou na página inicial dos Correios")]

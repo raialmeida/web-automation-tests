@@ -2,8 +2,11 @@
 
 namespace web_automation_tests.Core
 {
-    public class DSL : Begin
+    public class DSL(IWebDriver driver)
     {
+
+        public IWebDriver driver = driver;
+
         public void TypeTextById(string id, string value)
         {
             driver.FindElement(By.Id(id)).SendKeys(value);

@@ -1,10 +1,11 @@
-﻿using TechTalk.SpecFlow;
+﻿using OpenQA.Selenium;
+using TechTalk.SpecFlow;
 using web_automation_tests.Pages;
 
 namespace web_automation_tests.Steps
 {
     [Binding]
-    public class ConsultTrackingStep : ConsultTrackingPage
+    public class ConsultTrackingStep(IWebDriver driver) : ConsultTrackingPage(driver)
     {
 
         [Given(@"que estou na página de rastreamento dos Correios")]

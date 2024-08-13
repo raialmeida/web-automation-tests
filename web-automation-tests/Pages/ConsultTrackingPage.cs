@@ -1,9 +1,11 @@
-﻿using web_automation_tests.Core;
+﻿using OpenQA.Selenium;
+using web_automation_tests.Core;
 
 namespace web_automation_tests.Pages
 {
-    public class ConsultTrackingPage : DSL
+    public class ConsultTrackingPage(IWebDriver driver) : DSL(driver)
     {
+
         public void SearchTracking()
         {
             try
@@ -13,9 +15,6 @@ namespace web_automation_tests.Pages
 
                 // Clica no botão que abre uma nova janela
                 ClickOnElementByXpath("//button[@class='bt-link-ic']/i[@class='ic-busca-out']");
-
-                // Espera um pouco para garantir que a nova janela seja aberta
-                //  System.Threading.Thread.Sleep(2000);  // Use WebDriverWait em produção
 
                 // Captura todos os identificadores das janelas abertas
                 var windowHandles = driver.WindowHandles;

@@ -1,28 +1,31 @@
-﻿using OpenQA.Selenium;
+﻿using BoDi;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
 namespace web_automation_tests.Core
 {
-    public class Begin
+    [Binding]
+    public class Begin(IObjectContainer container)
     {
-        public required IWebDriver driver;
-        public bool driverQuit = true;
+
+        private readonly IObjectContainer container = container;
 
         [BeforeScenario]
         public void StartTest()
         {
-            driver = new ChromeDriver();
+            ChromeDriver driver = new();
             driver.Navigate().GoToUrl("https://www.correios.com.br");
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            driverQuit = true;
+            container.RegisterInstanceAs<IWebDriver>(driver);
         }
 
         [AfterScenario]
         public void FinshTest()
         {
-            if (driverQuit) driver.Quit();
+            var driver = container.Resolve<IWebDriver>();
+            driver?.Quit();
         }
     }
 }

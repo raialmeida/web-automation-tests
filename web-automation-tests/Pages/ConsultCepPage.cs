@@ -3,12 +3,14 @@ using web_automation_tests.Core;
 
 namespace web_automation_tests.Pages
 {
-    public class ConsultCepPage : DSL
+    public class ConsultCepPage(IWebDriver driver) : DSL(driver)
     {
+
         public void SearchCEP()
         {
             ClickOnElementByXpath("(//a[span[text()='Busca CEP ou Endereço']])[2]");
         }
+
         public void TypeCep(string cep)
         {
             TypeTextById("endereco", cep);
@@ -36,7 +38,7 @@ namespace web_automation_tests.Pages
 
             string fullAddress = $"{streetElement.Text}, {cityElement.Text}";
 
-            Assert.That(address, Does.Contain(fullAddress), "O texto do elemento não contém a string esperada.");
+            Assert.That(address, Does.Contain(fullAddress), "O texto do elemento não contém o texto esperado.");
         }
     }
 }
