@@ -20,7 +20,7 @@ namespace web_automation_tests.Core
         public void ClickOnElementByXpath(string xpath)
         {
             var element = driver.FindElement(By.XPath(xpath));
-            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+            ScrollElement(element);
             element.Click();
         }
 
@@ -55,6 +55,11 @@ namespace web_automation_tests.Core
         {
             // Aqui vai pausar por 15 segundos para digitar o captcha manualmente no browser.
             Thread.Sleep(15000);
+        }
+
+        private void ScrollElement(IWebElement element)
+        {
+            ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
     }
 }

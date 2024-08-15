@@ -11,6 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Allure.SpecFlow" Version="2.12.1" />
+	  <None Update="specflow.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	  <None Update="allureConfig.json">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
     <PackageReference Include="coverlet.collector" Version="6.0.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

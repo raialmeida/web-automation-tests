@@ -1,19 +1,15 @@
 ﻿{
+  "parallelExecution": {
+    "enable": true,
+    "scope": "Scenario"
+  },
   "specFlow": {
     "bindingCulture": {
       "language": "pt-BR"
     }
   },
+  "stepAssemblies": [ { "assembly": "Allure.SpecFlowPlugin" } ],
   "unitTestProvider": {
     "name": "NUnit"
-  },
-  "stepAssemblies": [
-    {
-      "assembly": "web-automation-tests"
-    }
-  ],
-  "parallelExecution": {
-    "enable": true,
-    "scope": "Scenario"
   }
 }
