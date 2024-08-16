@@ -33,7 +33,7 @@ bld/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
-web-automation-tests/allure-results/
+/allure-results/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
