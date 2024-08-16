@@ -2,7 +2,7 @@ services:
   selenium-specflow-front:
     image: web-tests-e2e-automation
     build: .
+    environment:
+       HEADLESS_MODE: true
     volumes:
       - ../../../allure-results:/app/allure-results
-  environment:
-    HEADLESS_MODE: true
