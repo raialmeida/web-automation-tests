@@ -22,7 +22,7 @@ namespace web_automation_tests.Core
         }
 
         [AfterScenario]
-        public void FinshTest()
+        public void FinishTest()
         {
             var driver = container.Resolve<IWebDriver>();
             driver?.Quit();
