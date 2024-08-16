@@ -3,6 +3,6 @@ services:
     image: web-tests-e2e-automation
     build: .
     environment:
-       HEADLESS_MODE: true
+      HEADLESS_MODE: true
     volumes:
       - ./allure-results:/app/allure-results
