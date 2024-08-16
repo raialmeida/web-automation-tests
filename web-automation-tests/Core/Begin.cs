@@ -1,4 +1,5 @@
-﻿using BoDi;
+﻿using Allure.Net.Commons;
+using BoDi;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
@@ -24,6 +25,7 @@ namespace web_automation_tests.Core
                 chromeOptions.AddArgument("--no-sandbox");
                 chromeOptions.AddArgument("--disable-dev-shm-usage");
             }
+            AllureLifecycle.Instance.CleanupResultDirectory();
 
             ChromeDriver driver = new(chromeOptions);
             driver.Navigate().GoToUrl("https://www.correios.com.br");
@@ -33,7 +35,7 @@ namespace web_automation_tests.Core
         }
 
         [AfterScenario]
-        public void FinshTest()
+        public void FinishTest()
         {
             var driver = container.Resolve<IWebDriver>();
             driver?.Quit();
