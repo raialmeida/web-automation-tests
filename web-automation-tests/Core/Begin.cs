@@ -14,6 +14,12 @@ namespace web_automation_tests.Core
         private readonly bool isHeadless =
             Environment.GetEnvironmentVariable("HEADLESS_MODE")?.Trim().ToLower() == "true";
 
+        [BeforeTestRun]
+        public static void CleanAllureResults()
+        {
+            AllureLifecycle.Instance.CleanupResultDirectory();
+        }
+
         [BeforeScenario]
         public void StartTest()
         {
@@ -25,7 +31,6 @@ namespace web_automation_tests.Core
                 chromeOptions.AddArgument("--no-sandbox");
                 chromeOptions.AddArgument("--disable-dev-shm-usage");
             }
-            AllureLifecycle.Instance.CleanupResultDirectory();
 
             ChromeDriver driver = new(chromeOptions);
             driver.Navigate().GoToUrl("https://www.correios.com.br");
