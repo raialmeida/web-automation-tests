@@ -4,3 +4,5 @@ services:
     build: .
     volumes:
       - ../../../allure-results:/app/allure-results
+  environment:
+    HEADLESS_MODE: true

@@ -10,11 +10,22 @@ namespace web_automation_tests.Core
     {
 
         private readonly IObjectContainer container = container;
+        private readonly bool isHeadless =
+            Environment.GetEnvironmentVariable("HEADLESS_MODE")?.Trim().ToLower() == "true";
 
         [BeforeScenario]
         public void StartTest()
         {
-            ChromeDriver driver = new();
+            var chromeOptions = new ChromeOptions();
+
+            if (isHeadless)
+            {
+                chromeOptions.AddArgument("--headless");
+                chromeOptions.AddArgument("--no-sandbox");
+                chromeOptions.AddArgument("--disable-dev-shm-usage");
+            }
+
+            ChromeDriver driver = new(chromeOptions);
             driver.Navigate().GoToUrl("https://www.correios.com.br");
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
