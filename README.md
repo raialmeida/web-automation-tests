@@ -1,6 +1,6 @@
 # Projeto de Automação de Testes com Selenium e SpecFlow
 
-Este projeto é uma automação de testes de aplicação web utilizando Selenium para a automação e SpecFlow para especificações de testes em estilo BDD (Behavior-Driven Development). O framework de teste utilizado é o NUnit.
+Este projeto é uma automação de testes de aplicação web utilizando Selenium para a automação e SpecFlow para especificações de testes na linguagem Gherkin. O framework de teste utilizado é o NUnit.
 
 ## Requisitos
 
