@@ -28,7 +28,9 @@ jobs:
     displayName: "Build"
     steps:
       - script: |
-          rm -rf $(Build.SourcesDirectory)/allure-results
+          sudo chown -R $(whoami) $(Build.SourcesDirectory)allure-results
+          sudo chmod -R u+rwX $(Build.SourcesDirectory)allure-results
+          rm -rf $(Build.SourcesDirectory)allure-result
       - checkout: self
         clean: true
         displayName: "Limpar allure-results"
