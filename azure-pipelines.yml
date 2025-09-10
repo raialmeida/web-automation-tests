@@ -51,8 +51,9 @@ jobs:
           action: Run a specific service
           dockerComposeFile: '$(DOCKER_COMPOSE_FILE)'
           serviceName: 'selenium-specflow-front'
-          projectName: 'web-automation-tests' 
-          arguments: '--remove-orphans dotnet test'
+          projectName: 'web-automation-tests'
+          removeOrphans: true   
+          arguments: 'dotnet test'
 
       - task: PublishAllureReport@1
         displayName: "Publish allure report"
