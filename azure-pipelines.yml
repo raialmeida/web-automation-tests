@@ -42,7 +42,7 @@ jobs:
   - job: Teste
     dependsOn: Build
     condition: succeeded('Build')
-    displayName: "Executando testes"
+    displayName: "Execução dos testes"
     steps:
       - task: DockerCompose@1
         displayName: "Start Containers and Run Tests"
@@ -52,7 +52,7 @@ jobs:
           dockerComposeFile: '$(DOCKER_COMPOSE_FILE)'
           serviceName: 'selenium-specflow-front'
           projectName: 'web-automation-tests' 
-          arguments: 'dotnet test'
+          arguments: '--remove-orphans dotnet test'
 
       - task: PublishAllureReport@1
         displayName: "Publish allure report"
