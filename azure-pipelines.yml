@@ -36,6 +36,7 @@ jobs:
         inputs:
           containerregistrytype: 'Azure Container Registry'
           action: 'Build services'
+          projectName: 'web-automation-tests'
           dockerComposeFile: '$(DOCKER_COMPOSE_FILE)'
           
   - job: Teste
@@ -50,6 +51,7 @@ jobs:
           action: Run a specific service
           dockerComposeFile: '$(DOCKER_COMPOSE_FILE)'
           serviceName: 'selenium-specflow-front'
+          projectName: 'web-automation-tests' 
           arguments: 'dotnet teste'
 
       - task: PublishAllureReport@1
