@@ -27,6 +27,9 @@ jobs:
   - job: Build
     displayName: "Build"
     steps:
+      - script: |
+          rm -rf $(Build.SourcesDirectory)/allure-results
+        displayName: "Limpar allure-results"
       - task: DockerCompose@1
         displayName: "Build Docker Images"
         inputs:
@@ -48,7 +51,7 @@ jobs:
           dockerComposeFile: '$(DOCKER_COMPOSE_FILE)'
           serviceName: 'selenium-specflow-front'
           projectName: 'web-automation-tests'
-          removeOrphans: true   
+          removeOrphans: true 
           arguments: 'dotnet test'
 
       - task: PublishAllureReport@1
