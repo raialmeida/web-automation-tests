@@ -27,10 +27,6 @@ jobs:
   - job: Build
     displayName: "Build"
     steps:
-      - script: |
-           mkdir -p $(Build.SourcesDirectory)/allure-results
-      - checkout: self
-        clean: true
       - task: DockerCompose@1
         displayName: "Build Docker Images"
         inputs:
