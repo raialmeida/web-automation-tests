@@ -8,31 +8,7 @@ namespace web_automation_tests.Pages
 
         public void SearchTracking()
         {
-            try
-            {
-                // Captura o identificador da janela atual
-                string originalWindow = driver.CurrentWindowHandle;
-
-                // Clica no botão que abre uma nova janela
-                ClickOnElementByXpath("//button[@class='bt-link-ic']/i[@class='ic-busca-out']");
-
-                // Captura todos os identificadores das janelas abertas
-                var windowHandles = driver.WindowHandles;
-
-                // Alterna para a nova janela
-                foreach (var handle in windowHandles)
-                {
-                    if (handle != originalWindow)
-                    {
-                        driver.SwitchTo().Window(handle);
-                        break;
-                    }
-                }
-            }
-            finally
-            {
-
-            }
+            ClickOnElementByXpath("//button[@class='bt-link-ic']/i[@class='ic-busca-out']");
         }
 
         public void TypeTrackingNumber(string number)

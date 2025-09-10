@@ -12,6 +12,7 @@ namespace web_automation_tests.Steps
         public void DadoQueEstouNaPaginaInicialDosCorreios()
         {
             SearchCEP();
+            SwitchToNewTab(driver);
         }
 
         [When(@"eu procurar pelo CEP ""(.*)""")]

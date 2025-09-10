@@ -4,8 +4,13 @@ namespace web_automation_tests.Core
 {
     public class DSL(IWebDriver driver)
     {
-
+        
         public IWebDriver driver = driver;
+
+        public void TypeTextByCss(string css, string value)
+        {
+            driver.FindElement(By.CssSelector(css)).SendKeys(value);
+        }
 
         public void TypeTextById(string id, string value)
         {
@@ -60,6 +65,25 @@ namespace web_automation_tests.Core
         private void ScrollElement(IWebElement element)
         {
             ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", element);
+        }
+
+        public void SwitchToNewTab(IWebDriver driver)
+        {
+            // Pega o identificador da aba atual
+            string abaAtual = driver.CurrentWindowHandle;
+
+            // Pega todas as abas abertas
+            var abas = driver.WindowHandles;
+
+            // Encontra a aba nova que não é a atual
+            foreach (var aba in abas)
+            {
+                if (aba != abaAtual)
+                {
+                    driver.SwitchTo().Window(aba);
+                    break;
+                }
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ namespace web_automation_tests.Pages
 
         public void TypeCep(string cep)
         {
-            TypeTextById("endereco", cep);
+            TypeTextByCss("#endereco", cep);
         }
 
         public void TypeCaptcha()
