@@ -52,7 +52,7 @@ jobs:
           dockerComposeFile: '$(DOCKER_COMPOSE_FILE)'
           serviceName: 'selenium-specflow-front'
           projectName: 'web-automation-tests' 
-          arguments: 'dotnet teste'
+          arguments: 'dotnet test'
 
       - task: PublishAllureReport@1
         displayName: "Publish allure report"
