@@ -10,7 +10,7 @@ Antes de começar, certifique-se de que você tem os seguintes itens instalados:
 - [.NET SDK](https://dotnet.microsoft.com/pt-br/download/visual-studio-sdks) (para executar o projeto)
 
 ## Observação sobre Captcha:
-**A aplicação dos correios incluem validação via CAPTCHA, que não pode ser automatizada pelo Selenium. Nestes casos, será necessário inserir o CAPTCHA manualmente durante a execução do teste. A automação aguarda 15 segundos e o teste continuará automaticamente após a resolução manual.**
+**A aplicação do correios incluem validação via CAPTCHA, que não pode ser automatizada pelo Selenium. Nestes casos, será necessário inserir o CAPTCHA manualmente durante a execução do teste. A automação aguarda 15 segundos e o teste continuará automaticamente após a resolução manual.**
 
 CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart) é projetado exatamente para impedir que robôs ou scripts automatizados interajam com a aplicação. Isso significa que tentar automatizar a resolução de CAPTCHA:
 
