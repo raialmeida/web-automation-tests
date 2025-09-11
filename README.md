@@ -10,7 +10,7 @@ Antes de começar, certifique-se de que você tem os seguintes itens instalados:
 - [.NET SDK](https://dotnet.microsoft.com/pt-br/download/visual-studio-sdks) (para executar o projeto)
 
 ## Observação sobre Captcha:
-**Os testes da aplicação incluem validação via CAPTCHA, que não pode ser automatizada pelo Selenium. Nestes casos, será necessário inserir o CAPTCHA manualmente durante a execução do teste. A automação aguarda 15 segundos e o teste continuará automaticamente após a resolução manual.**
+**A aplicação dos correios incluem validação via CAPTCHA, que não pode ser automatizada pelo Selenium. Nestes casos, será necessário inserir o CAPTCHA manualmente durante a execução do teste. A automação aguarda 15 segundos e o teste continuará automaticamente após a resolução manual.**
 
 CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart) é projetado exatamente para impedir que robôs ou scripts automatizados interajam com a aplicação. Isso significa que tentar automatizar a resolução de CAPTCHA:
 
@@ -29,14 +29,18 @@ git clone https://github.com/raialmeida/web-automation-tests
 
 ## Execução do Testes
 
-Compilar o projeto.
+Compilar o projeto:
 
 ```
 dotnet build
 ```
-Executar os testes.
+Executar os testes:
 ```
 dotnet test
+```
+Para executar os testes no container docker, utilize o seguinte comando:
+```
+docker-compose run --rm selenium-specflow-front dotnet test
 ```
 
 ## Estrutura do Projeto
@@ -45,6 +49,7 @@ dotnet test
 - Steps/: Contém as definições de passos correspondentes aos cenários nos arquivos .feature.
 - Pages/: Contém os métodos de cada pages.
 - Core/: Contém classes auxiliares que facilitam a execução de testes.
+- allure-results/: Report dos testes (Será criada automaticamente quando os testes finalizar).
 
 ## Integração Contínua
 
